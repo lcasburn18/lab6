@@ -7,15 +7,15 @@ const Read = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    axios.get('https://jsonblob.com/api/jsonblob/1287718524221775872')
+    axios.get('http://localhost:4000/api/movies')  // Update URL to the local server
       .then((response) => {
         console.log(response.data);
-        setMovies(response.data.movies);
+        setMovies(response.data.movies);  // Assuming response data has a `movies` array
       })
       .catch((error) => {
-        console.log(error);
+        console.error('Error fetching movies:', error);
       });
-  });
+  }, []); 
 
   return (
     <div>
